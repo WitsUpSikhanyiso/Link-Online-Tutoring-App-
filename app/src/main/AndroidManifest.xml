@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.link_online_tutoring_app_">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/logo"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/logo"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".ProfileActivity"></activity>
+        <activity android:name=".ListAllUsers" />
+        <activity android:name=".ViewPosts" />
+        <activity android:name=".CalendarActvity" />
+        <activity android:name=".EventActivity" />
+        <activity android:name=".FacultiesAcitvities.HealthScienceActivity" />
+        <activity android:name=".FacultiesAcitvities.HumanitiesActivity" />
+        <activity android:name=".FacultiesAcitvities.CommerceActivity" />
+        <activity android:name=".FacultiesAcitvities.ScienceActivity" />
+        <activity android:name=".AptListUser.Apt_ListUsers"/>
+        <activity android:name=".ScheduleActivity"/>
+        <activity android:name=".ChatActivity" />
+        <activity android:name=".SplashScreenActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".HomeActivity" />
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".PostsActivity" />
+        <activity android:name=".ViewAnswers" />
+        <activity android:name=".AnswerActivity" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+</manifest>
