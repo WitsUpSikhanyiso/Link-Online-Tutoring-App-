@@ -23,6 +23,16 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    
+    
+       testOptions {
+        unitTests {
+            includeAndroidResources = true
+            returnDefaultValues = true
+        
+    }
+  }
+    
 }
 
 dependencies {
@@ -43,14 +53,6 @@ dependencies {
 
 }
 
-
-   testOptions {
-        unitTests {
-            includeAndroidResources = true
-            returnDefaultValues = true
-        
-    }
-}
 
 coveralls {
     jacocoReportPath 'build/reports/jacoco/jacocoTestReport/jacocoTestReport.xml'
