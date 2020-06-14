@@ -3,7 +3,7 @@ jdk: oraclejdk8
 env:
   global:
     - ANDROID_API_LEVEL=25
-    - ANDROID_BUILD_TOOLS_VERSION=25.0.0
+    - ANDROID_BUILD_TOOLS_VERSION=23.0.1
 android:
   licenses:
     - 'android-sdk-preview-license-.+'
@@ -16,7 +16,7 @@ android:
     - extra-google-google_play_services
     - extra-google-m2repository
     - extra-android-m2repository
-    - build-tools-25.0.0
+    - build-tools-23.0.1
     - android-23
     - sys-img-armeabi-v7a-android-23
     
