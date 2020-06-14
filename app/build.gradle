@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-apply plugin: 'jacoco-android'
+//apply plugin: 'jacoco-android'
 apply plugin: 'com.github.kt3k.coveralls'
 apply plugin: 'jacoco'
 
