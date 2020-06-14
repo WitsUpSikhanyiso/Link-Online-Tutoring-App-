@@ -23,6 +23,18 @@ public class ChatActivityTest {
     public ActivityTestRule rule = new ActivityTestRule(ChatActivity.class, true, false);
     SharedPreferences.Editor PE;
     public static String SHARED_PREF_LOGIN="shared_prefs_login";
+    
+    
+    
+       @Before
+    public void setUp() throws Exception {
+        //runs before the test
+
+    }
+    @Test
+    public void onCreate() {
+    }
+    
 
     @Test
     public  void Chats(){
