@@ -144,6 +144,19 @@ public class ChatActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
             }
+            
+            
+                 if (YellowLight != "ON"){
+             my_id = 90;
+            sender = "Murphy";
+        }
+      else if(YellowLight == "ON") {
+            SharedPreferences sharedPreferences1 = LoginActivity.context.getSharedPreferences(LoginActivity.SHARED_PREF_LOGIN, Context.MODE_PRIVATE);
+            String user_id = sharedPreferences1.getString(RequestHandler.Unkey, "-1");
+            my_id = Integer.parseInt(user_id);
+            sender = sharedPreferences1.getString("my_username", "null");
+        }
+            
         });
 
 
