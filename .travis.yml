@@ -19,28 +19,17 @@ before_install:
 
 install: true
 
-before_cache:
-  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
-  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
-
-cache:
-  directories:
-    - $HOME/.gradle/caches/
-    - $HOME/.gradle/wrapper/
-    - $HOME/.android/build-cache
-
-stages:
-  - name: lint_and_test
-
-jobs:
-  include:
-    # Make sure we're not being sloppy
-    - stage: lint_and_test
-      name: "Lint"
-      script: ./gradlew clean lint
-    # Make sure we're not breaking things
-    - name: "Test"
-      script: ./gradlew clean test
+script:
+  - ./gradlew build jacocoTestReport assembleAndroidTest
+  - ./gradlew assembleDebug
+  - ./gradlew connectedAndroidTest coveralls
+  - echo "Travis branch is $TRAVIS_BRANCH"
+  - echo "Travis branch is in pull request $TRAVIS_PULL+REQUEST"
+before_script:
+  - echo no | android create avd --force -n test -t android-22 --abi armeabi-v7a
+  - emulator -avd test -no-audio -no-window &
+  - android-wait-for-emulator
+  - adb shell input keyevent 82 &
 
 after_success:
 - ./gradlew jacocoTestReport coveralls
