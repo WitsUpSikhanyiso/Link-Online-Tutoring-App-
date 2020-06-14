@@ -90,19 +90,7 @@ public class ChatActivity extends AppCompatActivity {
 //        }
 
         receiverName = findViewById(R.id.receiverName);
-        btnReload_ = findViewById(R.id.btnReload);
-       
-        if (YellowLight != "ON"){
-             my_id = 90;
-            sender = "Murphy";
-        }
-      else if(YellowLight == "ON") {
-            SharedPreferences sharedPreferences1 = LoginActivity.context.getSharedPreferences(LoginActivity.SHARED_PREF_LOGIN, Context.MODE_PRIVATE);
-            String user_id = sharedPreferences1.getString(RequestHandler.Unkey, "-1");
-            my_id = Integer.parseInt(user_id);
-            sender = sharedPreferences1.getString("my_username", "null");
-        }
-        
+        btnReload_ = findViewById(R.id.btnReload);  
         btnReload_.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -144,8 +132,9 @@ public class ChatActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
             }
-            
-            
+                    });
+
+      
                  if (YellowLight != "ON"){
              my_id = 90;
             sender = "Murphy";
@@ -156,10 +145,6 @@ public class ChatActivity extends AppCompatActivity {
             my_id = Integer.parseInt(user_id);
             sender = sharedPreferences1.getString("my_username", "null");
         }
-            
-        });
-
-
 
     }
 
