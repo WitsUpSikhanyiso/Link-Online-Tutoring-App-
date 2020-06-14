@@ -43,7 +43,7 @@ public class ChatActivityTest {
         PE = cx.getSharedPreferences(LoginActivity.SHARED_PREF_LOGIN, Context.MODE_PRIVATE).edit();
         PE.putString("Key", "90");
         PE.apply();
-        PE.commit();
+       // PE.commit();
         rule.launchActivity(new Intent());
         onView(withId(R.id.btnReload)).perform(click());
 
@@ -56,7 +56,7 @@ public class ChatActivityTest {
         PE = cx.getSharedPreferences(LoginActivity.SHARED_PREF_LOGIN, Context.MODE_PRIVATE).edit();
         PE.putString("Key", "90");
         PE.apply();
-        PE.commit();
+      //  PE.commit();
         int i = 91;
         String name = "Murphy";
         Intent id = new Intent();
@@ -78,7 +78,7 @@ public class ChatActivityTest {
         PE = cx.getSharedPreferences(LoginActivity.SHARED_PREF_LOGIN, Context.MODE_PRIVATE).edit();
         PE.putString("Key", "90");
         PE.apply();
-        PE.commit();
+      //  PE.commit();
         int i = 91;
         String name = "Murphy";
         Intent id = new Intent();
