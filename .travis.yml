@@ -84,6 +84,11 @@ script:
   - npm i
   - npm i -g detox-cli
   - npm run e2e:release || npm run e2e:release-no-build
+  - ./gradlew build jacocoTestReport assembleAndroidTest
+  - ./gradlew assembleDebug
+  - ./gradlew connectedAndroidTest coveralls
+  - echo "Travis branch is $TRAVIS_BRANCH"
+  - echo "Travis branch is in pull request $TRAVIS_PULL+REQUEST"
 
 after_failure: ./tests/e2e/upload-artifacts.sh
 
@@ -98,3 +103,6 @@ cache:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
 - node_modules/
+
+after_success:
+ - ./gradlew jacocoTestReport coveralls
