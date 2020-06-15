@@ -1,6 +1,7 @@
 package com.example.link_online_tutoring_app_;
 
 
+import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.test.InstrumentationRegistry;
 import androidx.test.core.app.ActivityScenario;
 import androidx.test.espresso.UiController;
 import androidx.test.espresso.ViewAction;
@@ -39,7 +41,6 @@ import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentat
 
 @RunWith(AndroidJUnit4.class)
 public class ChatActivityTest {
-    /*
     @Rule
     public ActivityTestRule rule = new ActivityTestRule(ChatActivity.class, true, false);
     SharedPreferences.Editor PE;
@@ -47,24 +48,21 @@ public class ChatActivityTest {
 
 
     @Before
-    public void setUp() throws Exception {
-        //runs before the test
-
+    public void setUp() {
+        Context cx = getInstrumentation().getTargetContext();
+        PE = cx.getSharedPreferences(LoginActivity.SHARED_PREF_LOGIN, Context.MODE_PRIVATE).edit();
+        PE.putString("Key", "90");
+        PE.apply();
+        PE.commit();
     }
     @Test
     public void onCreate() {
     }
 
 
-
     @Test
-    public  void Chats(){
+    public  void Chats1(){
         rule.launchActivity(new Intent());
-        Context cx = getInstrumentation().getTargetContext();
-        PE = cx.getSharedPreferences(LoginActivity.SHARED_PREF_LOGIN, Context.MODE_PRIVATE).edit();
-        PE.putString("Key", "90");
-        PE.apply();
-       // PE.commit();
         onView(withId(R.id.btnReload)).perform(click());
 
     }
@@ -72,19 +70,12 @@ public class ChatActivityTest {
 
     @Test
     public  void chats2(){
-         int i = 91;
+        int i = 91;
         String name = "Murphy";
         Intent id = new Intent();
         id.putExtra("receiver",name);
         id.putExtra("receiver_id",i );
         rule.launchActivity(id);
-        
-        Context cx = getInstrumentation().getTargetContext();
-        PE = cx.getSharedPreferences(LoginActivity.SHARED_PREF_LOGIN, Context.MODE_PRIVATE).edit();
-        PE.putString("Key", "90");
-        PE.apply();
-      //  PE.commit();
- 
         onView(withId(R.id.btnReload)).perform(click());
 
 
@@ -102,13 +93,6 @@ public class ChatActivityTest {
         id.putExtra("receiver",name);
         id.putExtra("receiver_id",i );
         rule.launchActivity(id);
-        
-        Context cx = getInstrumentation().getTargetContext();
-        PE = cx.getSharedPreferences(LoginActivity.SHARED_PREF_LOGIN, Context.MODE_PRIVATE).edit();
-        PE.putString("Key", "90");
-        PE.apply();
-      //  PE.commit();
- 
         onView(withId(R.id.messageEText)).perform(typeText("hey budyy"));
         onView(withId(R.id.btnSend)).perform(click());
         onView(withId(R.id.btnReload)).perform(click());
@@ -118,5 +102,5 @@ public class ChatActivityTest {
 
 
 
-*/
+
 }
