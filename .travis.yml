@@ -25,9 +25,7 @@ before_install:
   - yes | sdkmanager "platforms;android-28"
 
 script:
-  - ./gradlew build jacocoTestReport assembleAndroidTest
-  - ./gradlew assembleDebug
-  - ./gradlew connectedAndroidTest coveralls
+  - ./gradlew clean testDebug lintDebug jacocoDebugReport coveralls --scan --stacktrace
   - echo "Travis branch is $TRAVIS_BRANCH"
   - echo "Travis branch is in pull request $TRAVIS_PULL+REQUEST"
 before_script:
@@ -36,6 +34,4 @@ before_script:
   - android-wait-for-emulator
   - adb shell input keyevent 82 &
 
-after_success:
- - ./gradlew jacocoTestReport coveralls
- - bash <(curl -s https://codecov.io/bash)
+
